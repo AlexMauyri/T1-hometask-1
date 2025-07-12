@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class WeatherReport {
-    private Date data;
+    private Date date;
     private byte temperatureCelcium;
     private WeatherState weatherState;
     private String city;

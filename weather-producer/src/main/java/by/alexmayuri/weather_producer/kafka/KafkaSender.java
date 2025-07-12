@@ -20,7 +20,7 @@ public class KafkaSender {
 
     public void sendWeatherReportMessage(WeatherReport weatherReport) {
         log.info("Sending weather report: {}", weatherReport);
-        kafkaTemplate.send(topic, weatherReport)
+        kafkaTemplate.send(topic, weatherReport.getCity(), weatherReport)
         .whenComplete((result, exception) -> {
             if (exception != null) {
                 log.info(exception.getMessage());
