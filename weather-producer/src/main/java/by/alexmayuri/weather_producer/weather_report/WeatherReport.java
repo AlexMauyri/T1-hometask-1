@@ -1,8 +1,8 @@
 package by.alexmayuri.weather_producer.weather_report;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import com.github.javafaker.Faker;
 
@@ -17,7 +17,7 @@ public class WeatherReport {
 
     public static WeatherReport random() {
         Faker faker = new Faker(Locale.forLanguageTag("ru-RU"));
-        Date randomDate = faker.date().future(100, TimeUnit.SECONDS);
+        Date randomDate = Date.from(Instant.now());
         byte randomTemperature = (byte) faker.number().numberBetween(0, 35);
         WeatherState randomWeatherState = faker.options().option(WeatherState.class);
         String randomCity = faker.address().city();
