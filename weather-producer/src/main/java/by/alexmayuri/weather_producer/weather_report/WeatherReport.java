@@ -6,14 +6,16 @@ import java.util.Locale;
 
 import com.github.javafaker.Faker;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class WeatherReport {
-    private final Date data;
-    private final byte temperatureCelcium;
-    private final WeatherState weatherState;
-    private final String city;
+    private Date data;
+    private byte temperatureCelcium;
+    private WeatherState weatherState;
+    private String city;
 
     public static WeatherReport random() {
         Faker faker = new Faker(Locale.forLanguageTag("ru-RU"));
