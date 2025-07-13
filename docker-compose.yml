@@ -119,7 +119,23 @@ services:
       DB_NAME: postgres
       DB_USERNAME: postgres
       DB_PASSWORD: 25812581
-    
+
+  weather-api:
+    container_name: weather-api
+    build:
+      context: ./weather-report-api
+      dockerfile: Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_CONFIG_NAME: docker
+      DB_URL: postgres:5432
+      DB_NAME: postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: 25812581
+    ports:
+      - "8080:8080"
 
 
 volumes:
